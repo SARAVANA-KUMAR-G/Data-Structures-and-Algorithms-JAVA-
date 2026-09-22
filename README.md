@@ -7,6 +7,13 @@ Data Structures:
  - Array
  - Dynamic Array
  - Singly Linked List
+ - Linked List using Generics
  - Doubly Linked List
- - Reverse a Linked List
  - Circular Linked List
+ - Stack using Array
+ - Stack using Linked List
+
+Applications:
+
+ - Reverse a Linked List
+ - Polynomial Addition Using LinkedList
