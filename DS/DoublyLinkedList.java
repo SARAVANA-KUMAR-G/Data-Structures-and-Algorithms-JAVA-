@@ -1,18 +1,20 @@
 class Node{
         int data;
         Node next;
+        Node prev;
 
         Node(int data){
             this.data = data;
             this.next = null;
+            this.prev = null;
         }
     }
 
-public class LinkedList{
+public class DoublyLinkedList{
 
-    Node head;
+    Node head = null;
 
-    LinkedList(int headData){
+    DoublyLinkedList(int headData){
         Node newNode = new Node(headData);
         this.head = newNode;
     }
@@ -26,6 +28,7 @@ public class LinkedList{
                 temp = temp.next;
             }
             temp.next = newNode;
+            newNode.prev = temp;
         }
         else
             System.out.println("Linked List is Empty!");
@@ -34,12 +37,12 @@ public class LinkedList{
         if(head != null){
             Node temp = head;
             Node newNode = new Node(data);
-            head = newNode;
+            temp.prev = newNode;
             newNode.next = temp;
-            return ;
+            head = newNode;
         }
         else
-            System.out.println("LL is Empty!");
+            System.out.println("List is Empty!");
     }
     void insertAtIndex(int index, int data){
         if(head != null){
@@ -54,6 +57,7 @@ public class LinkedList{
             }
             newNode.next = temp.next;
             temp.next = newNode;
+            newNode.prev = temp;
         }
         else
             System.out.println("Index is not valid!");
@@ -113,19 +117,37 @@ public class LinkedList{
 
     // Delete
     void deleteAtIndex(int index){
+        if(index == 0){
+            deleteAtBegining();
+            return ;
+        }
         if(head != null){
             Node temp = head;
             for(int i = 0; i < index-1; i++){
+                temp = temp.next;
+                System.out.println(temp.data);
                 if(temp.next == null){
-                    break;
+                    temp.prev.next = temp.next;
+                    return ;
                 }
-                temp = temp.next;        
             }
             if(temp.next != null){
                 temp.next = temp.next.next;
-                return;   
+                temp.next.next.prev = temp;
+                // temp.prev = null;
+                // temp.next = null;
+                return;
             }
             System.out.println("Index Out of Bound!");
+        }
+        else
+            System.out.println("List is Empty!");
+    }
+    void deleteAtBegining(){
+        if(head != null){
+            Node temp = head;
+            head = temp.next;
+            head.prev = null;
         }
         else
             System.out.println("List is Empty!");
@@ -135,8 +157,13 @@ public class LinkedList{
     void display(){
         if(head != null){
             Node temp = head;
+            System.out.print("null<-");
             while(temp != null){
-                System.out.print(temp.data + "->");
+                if(temp.next == null){
+                    System.out.print(temp.data + "->");
+                    break;
+                }
+                System.out.print(temp.data + "<->");
                 temp = temp.next;
             }
             System.out.print("null\n");
@@ -147,7 +174,7 @@ public class LinkedList{
         
     public static void main(String[] args) {
 
-        LinkedList list = new LinkedList(10);
+        DoublyLinkedList list = new DoublyLinkedList(10);
         
         list.insert(20);
         list.insert(30);
@@ -155,18 +182,26 @@ public class LinkedList{
         list.insert(50);
 
         list.insertAtIndex(2, 15);
-        list.insertAtIndex(10, 25);
+        list.insertAtIndex(5, 25);
 
         list.insertAtBegining(11);
 
+        // list.insert(12);
+
         list.display();
+        System.out.println("");
+
         list.get(3);
+        System.out.println("");
+
         list.search(15);
+        System.out.println("");
 
         list.update(5, 99);
         list.display();
+        System.out.println("");
 
-        list.deleteAtIndex(4);
+        list.deleteAtIndex(5);
         list.display();
 
     }
