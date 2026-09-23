@@ -1,6 +1,9 @@
 # Data-Structures-and-Algorithms-JAVA-
 
-Hey Guys, This is my own versions of DSA Codes. Feel free to try them yourself and work with it :).
+Hey Guys, This is my own versions of DSA Codes.
+Feel free to try them yourself and work with it.
+Happy Coding guyzzz :).
+
 
 Data Structures:
 
@@ -12,8 +15,13 @@ Data Structures:
  - Circular Linked List
  - Stack using Array
  - Stack using Linked List
+ - Queue using Array
+ - Queue using Linked List
+
 
 Applications:
 
  - Reverse a Linked List
  - Polynomial Addition Using LinkedList
+ - Check Balanced Parenthesis
+ 
