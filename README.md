@@ -24,6 +24,10 @@ Applications:
  - Reverse a Linked List
  - Polynomial Addition Using LinkedList
  - Check Balanced Parenthesis
+
+
+Algorithms:
+
  - Linear Search(1D & 2D Array, Linked List)
  - Binary Search
  - Bubble Sort
