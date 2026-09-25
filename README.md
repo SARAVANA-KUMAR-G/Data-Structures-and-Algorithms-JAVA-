@@ -26,4 +26,7 @@ Applications:
  - Check Balanced Parenthesis
  - Linear Search(1D & 2D Array, Linked List)
  - Binary Search
+ - Bubble Sort
+ - Selection Sort
+ - Insertion Sort
  
